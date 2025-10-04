@@ -1,56 +1,18 @@
-# Expense Management System TODO
+# TODO: Fix Login and Add Signup Link
 
-## Project Setup
-- [x] Create project directories: backend/, frontend/
-- [x] Set up docker-compose.yml for PostgreSQL
-- [x] Initialize Django project in backend/
-- [x] Create Django app 'expenses'
-- [x] Install backend dependencies (Django, DRF, JWT, pytesseract, etc.)
-- [x] Configure settings.py for PostgreSQL, JWT, CORS
+## Tasks
+- [x] Fix login API call in Login.js to pass username and password as separate arguments
+- [x] Add signup link in the login form UI
+- [ ] Test login functionality after fixes
+- [ ] Test signup link navigation
 
-## Database Models
-- [x] Define Custom User model with roles (Admin, Manager, Employee)
-- [x] Company model
-- [x] Expense model (amount, category, description, date, currency, status)
-- [x] ApprovalRule model (percentage, specific approver, hybrid)
-- [x] ApprovalStep model (sequence, approver)
-- [x] ExpenseApproval model (links expense to approvers, status, comments)
+## Status
+- [x] Analyzed login issue: API call mismatch causing 400 errors
+- [x] Confirmed signup route exists at /signup
+- [x] Fixed login API call in frontend/src/components/Login.js
+- [x] Added signup link in login form UI
 
-## Authentication & User Management
-- [ ] Implement JWT authentication
-- [ ] Signup view: auto-create company and admin user
-- [ ] Admin views: create users, assign roles, set manager relationships
-- [ ] Role-based permissions
-
-## Expense Submission
-- [ ] Employee API: submit expense (convert currency if needed)
-- [ ] View own expense history
-
-## Approval Workflow
-- [ ] Manager/Admin APIs: view pending approvals, approve/reject with comments
-- [ ] Logic for sequential approvals
-- [ ] Conditional approval logic (percentage, specific approver)
-
-## Additional Features
-- [ ] OCR endpoint: upload receipt, extract data using pytesseract
-- [ ] Currency API integration: fetch countries/currencies, exchange rates
-- [ ] Utility functions for currency conversion
-
-## Frontend Setup
-- [x] Initialize React app in frontend/
-- [x] Install dependencies (axios, react-router, Material-UI, etc.)
-- [x] Set up routing
-
-## Frontend Components
-- [x] Login/Signup component
-- [x] Dashboard (role-based)
-- [x] Expense submission form (with receipt upload)
-- [x] Expense history view
-- [x] Approval list and actions
-- [ ] Admin user management interface
-
-## Integration & Testing
-- [ ] Connect React to Django APIs
-- [ ] Run migrations, start servers
-- [ ] Test authentication, expense submission, approvals
-- [ ] Test OCR and currency features
+## Summary
+- Fixed the login API call to pass username and password as separate arguments instead of an object
+- Added a "Sign Up" link below the Sign In button that navigates to /signup
+- The login form now includes proper error handling and navigation

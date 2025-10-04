@@ -5,7 +5,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import login
 from django.db.models import Q
 from django.http import JsonResponse
+from django.conf import settings
 import requests
+import os
 import pytesseract
 from PIL import Image
 import io
@@ -58,6 +60,8 @@ class ExpenseListCreateView(generics.ListCreateAPIView):
             return Expense.objects.filter(user=user)
 
     def perform_create(self, serializer):
+        # Ensure media directory exists
+        os.makedirs(settings.MEDIA_ROOT / 'receipts', exist_ok=True)
         expense = serializer.save(user=self.request.user)
         # Convert currency if needed
         if expense.currency != self.request.user.company.currency:
